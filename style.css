@@ -7,11 +7,13 @@
     width: 414px;
     background: #EEEEEE;
     z-index: 5;
+
+    position: relative;
 }
 header {
     background-color: rgba(207, 43, 43, 1);
     height: 92px;
-    width: 414px;
+    width: inherit;
     padding-left: 21px;
     padding-top: 7px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -34,8 +36,9 @@ header p {
     color: white;
 }
 main {
+    width: 414px;
     padding-left: 21px;
-    margin-top: 92px;
+    padding-top: 92px;
     padding-bottom: 110px;
   
 }
@@ -67,7 +70,15 @@ main img {
 }
 .plates {
     display: flex;
-    overflow: hidden;
+    overflow-x: scroll;
+}
+.drinks {
+    display: flex;
+    overflow: auto;
+}
+.diserts {
+    display: flex;
+    overflow: auto;
 }
 .plate-description {
     width: 172px;
@@ -85,7 +96,8 @@ main img {
 
     padding-left: 14px;
     padding-top: 10px;
-    padding-bottom: 10px;
+
+    position: relative;
 }
 .plate-description p {
     font-family: 'Roboto';
@@ -99,7 +111,7 @@ main img {
 }
 footer {
     height: 92px;
-    width: 414px;
+    width: inherit;
     background-color: white;
     
     margin-top: 16px;
@@ -128,8 +140,78 @@ footer h1 {
     line-height: 23px;
     letter-spacing: 0.018em;
     color: #FFFFFF;
-
+    text-align: center;
     width: 200px;
 
 
+}
+.selectedBox {
+    box-shadow: inset 0px 0px 0px 5px #32B72F;
+}
+.selectedBox .hidden {
+    visibility: visible;
+}
+ion-icon {
+    position: absolute;   
+    color: #32B72F;
+    font-size: 21px;
+    right: 12px;
+    bottom: 15px;
+    
+}
+
+.hidden {
+    visibility: hidden ;
+}
+.green-button-footer {
+    background-color: #32B72F;
+}
+.receipt-screen {
+    position: absolute;
+    z-index: 10;
+    top:0;
+    right:0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 414px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+}
+.receipt {
+    font-family: 'Roboto';
+
+    width: 377px;
+    height: 353px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    color: white;
+    background: #50D074;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+}
+.receipt div:nth-child(3){
+    width: 329px;
+    height: 52px;
+    font-weight: 700;
+    color: rgba(80, 208, 116, 1);
+    background: #FFFFFF;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.receipt div:nth-child(4){
+    width: 333px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

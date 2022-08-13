@@ -11,6 +11,15 @@
     </head>
     <body>
         <div class="container">
+            <div class="receipt-screen hidden"> 
+                <div class="receipt">
+                    <div> <h4> Confirme seu pedido </h4> </div>
+                    <div> <p> pedidos + preços </p> </div> 
+                    <div> Tudo certo, pode pedir! </div>
+                    <div onclick="hideReceipt()"> Cancelar </div>
+                </div>
+            </div>
+            
             <header> 
                 <h1>DrivenEats</h1>
                 <p>Sua comida em 6 minutos</p>
@@ -18,111 +27,85 @@
             <main>
                 <div class="title"> <h1>Primeiro, seu prato</h1> </div>
                 <div class="plates">
-                    <div class="plate-description">
+                    <div class="plate-description plate1" onclick="selectedPlates('.plate1')">
                         <img src="./imagens/plates.jpg">
                         <h2>Prato típico</h2>
                         <h3>Um pouco de farofa, um pouco de salada</h3>
                         <p>R$ 14,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
-                    <div class="plate-description">
+                    <div class="plate-description plate2" onclick="selectedPlates('.plate2')">
                         <img src="./imagens/plates.jpg">
                         <h2>Prato típico</h2>
                         <h3>Um pouco de farofa, um pouco de salada</h3>
                         <p>R$ 14,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
-                    <div class="plate-description">
+                    <div class="plate-description plate3" onclick="selectedPlates('.plate3')">
                         <img src="./imagens/plates.jpg">
                         <h2>Prato típico</h2>
                         <h3>Um pouco de farofa, um pouco de salada</h3>
                         <p>R$ 14,90</p>
-                    </div>
-                    <div class="plate-description">
-                        <img src="./imagens/plates.jpg">
-                        <h2>Prato típico</h2>
-                        <h3>Um pouco de farofa, um pouco de salada</h3>
-                        <p>R$ 14,90</p>
-                    </div>
-                    <div class="plate-description">
-                        <img src="./imagens/plates.jpg">
-                        <h2>Prato típico</h2>
-                        <h3>Um pouco de farofa, um pouco de salada</h3>
-                        <p>R$ 14,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
 
                 <div class="title"> <h1>Agora, sua bebida</h1> </div>
-                <div class="plates">
-                    <div class="plate-description">
+                <div class="drinks">
+                    <div class="plate-description drink1" onclick="selectedDrinks('.drink1')">
                         <img src="./imagens/sprite.jpg">
                         <h2>Sprite!</h2>
                         <h3>Lata 350ml</h3>
                         <p>R$ 4,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
-                    <div class="plate-description">
+                    <div class="plate-description drink2" onclick="selectedDrinks('.drink2')">
                         <img src="./imagens/sprite.jpg">
                         <h2>Sprite!</h2>
                         <h3>Lata 350ml</h3>
                         <p>R$ 4,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
-                    <div class="plate-description">
+                    <div class="plate-description drink3" onclick="selectedDrinks('.drink3')">
                         <img src="./imagens/sprite.jpg">
                         <h2>Sprite!</h2>
                         <h3>Lata 350ml</h3>
                         <p>R$ 4,90</p>
-                    </div>
-                    <div class="plate-description">
-                        <img src="./imagens/sprite.jpg">
-                        <h2>Sprite!</h2>
-                        <h3>Lata 350ml</h3>
-                        <p>R$ 4,90</p>
-                    </div>
-                    <div class="plate-description">
-                        <img src="./imagens/sprite.jpg">
-                        <h2>Sprite!</h2>
-                        <h3>Lata 350ml</h3>
-                        <p>R$ 4,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
 
                 <div class="title"> <h1>Por fim, sua sobremesa</h1> </div>
-                <div class="plates">
-                    <div class="plate-description">
+                <div class="diserts">
+                    <div class="plate-description diserts1" onclick="selectedDiserts('.diserts1')">
                         <img src="./imagens/pudim.jpg">
                         <h2>Pudim</h2>
                         <h3>Apenas pudim</h3>
                         <p>R$ 7,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
-                    <div class="plate-description">
+                    <div class="plate-description diserts2" onclick="selectedDiserts('.diserts2')">
                         <img src="./imagens/pudim.jpg">
                         <h2>Pudim</h2>
                         <h3>Apenas pudim</h3>
                         <p>R$ 7,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
-                    <div class="plate-description">
+                    <div class="plate-description diserts3" onclick="selectedDiserts('.diserts3')">
                         <img src="./imagens/pudim.jpg">
                         <h2>Pudim</h2>
                         <h3>Apenas pudim</h3>
                         <p>R$ 7,90</p>
-                    </div>
-                    <div class="plate-description">
-                        <img src="./imagens/pudim.jpg">
-                        <h2>Pudim</h2>
-                        <h3>Apenas pudim</h3>
-                        <p>R$ 7,90</p>
-                    </div>
-                    <div class="plate-description">
-                        <img src="./imagens/pudim.jpg">
-                        <h2>Pudim</h2>
-                        <h3>Apenas pudim</h3>
-                        <p>R$ 7,90</p>
+                        <ion-icon class="hidden" name="checkmark-circle"></ion-icon>
                     </div>
                 </div>
             </main>
             <footer>
-                <div> <h1>Selecione os 3 itens para fechar o pedido</h1> </div>
+                <div onclick="receiptFunction()"> <h1>Selecione os 3 itens para fechar o pedido</h1> </div>
             </footer>
         </div>
-
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
