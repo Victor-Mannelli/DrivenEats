@@ -131,7 +131,7 @@ function linkToWhatsapp(){
     const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
 
     const textURI = encodeURI(`Olá, gostaria de fazer o pedido: \n - Prato: ${chosenPlate.innerHTML} \n - Bebida: ${chosenDrink.innerHTML} \n - Sobremesa: ${chosenDisert.innerHTML} \n Total: R$ ${totalPriceNumber.toFixed(2)} \n\n Nome: ${custumerName} \n Endereço: ${adress}`);
-    const linkURL = `https://wa.me/21999999999?text=${textURI}`
+    const linkURL = `https://wa.me/5521997790964?text=${textURI}`
 
     window.open(linkURL,'_blank');
 }
