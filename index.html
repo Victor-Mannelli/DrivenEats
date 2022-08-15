@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="receipt-screen "> 
+            <div class="receipt-screen hidden"> 
                 <div class="receipt">
                     <div class="confirmation" onclick="receiptFunction()"> <h4> Confirme seu pedido </h4> </div>
                     <div class="food-price-tags">
@@ -28,11 +28,10 @@
                             <p class="total-price"> tt-price </p>
                         </div>
                     </div>
-                    <div> <a href="https://wa.me/5521997790964?text="> Tudo certo, pode pedir! </a></div>
+                    <div onclick="linkToWhatsapp()"> Tudo certo, pode pedir! </div>
                     <div onclick="hideReceipt()"> Cancelar </div>
                 </div>
             </div>
-            
             <header> 
                 <h1>DrivenEats</h1>
                 <p>Sua comida em 6 minutos</p>

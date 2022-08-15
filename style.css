@@ -4,7 +4,7 @@
 * {  box-sizing: border-box; } 
 
 .container {
-    width: 414px;
+    width: 100%;
     background: #EEEEEE;
     z-index: 5;
 }
@@ -28,17 +28,19 @@ header h1 {
     letter-spacing: -0.012em;
     font-family: 'Righteous', cursive;
     color: white;
+    text-align: center;
 }
 header p {
     font-family: 'Roboto', sans-serif;
     color: white;
+    text-align: center;
 }
 main {
-    width: 414px;
+    width: 100%;
     padding-left: 21px;
     padding-top: 92px;
     padding-bottom: 110px;
-  
+
 }
 main h1 {
     font-family: 'Righteous';
@@ -46,6 +48,7 @@ main h1 {
     line-height: 32px;
     letter-spacing: 0.018em;
     color: rgba(51, 51, 51, 1);
+    text-align: center;
 }
 main h2 {
     font-family: 'Roboto';
@@ -70,14 +73,17 @@ main img {
 .plates {
     display: flex;
     overflow-x: scroll;
+    justify-content: center;
 }
 .drinks {
     display: flex;
-    overflow: auto;
+    overflow-x: scroll;
+    justify-content: center;
 }
 .diserts {
     display: flex;
-    overflow: auto;
+    overflow-x: scroll;
+    justify-content: center;
 }
 .plate-description {
     width: 172px;
@@ -173,7 +179,7 @@ ion-icon {
     align-items: center;
     justify-content: center;
 
-    width: 415px;
+    width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.9);
 }
@@ -246,4 +252,58 @@ ion-icon {
     width: 100px;
     margin-right: 26px;
     text-align: end;
+}
+@media (max-width: 576px) {
+    
+    .plates {
+        display: flex;
+        overflow-x: scroll;
+        justify-content: flex-start;
+    }
+    .drinks {
+        display: flex;
+        overflow: auto;
+        justify-content: flex-start;
+    }
+    .diserts {
+        display: flex;
+        overflow: auto;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 414px){
+    .container {
+        width: 414px;
+        background: #EEEEEE;
+        z-index: 5;
+    }
+    header h1 {
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 55px;
+        letter-spacing: -0.012em;
+        font-family: 'Righteous', cursive;
+        color: white;
+        text-align: start;
+    }
+    header p {
+        font-family: 'Roboto', sans-serif;
+        color: white;
+        text-align: start;
+    }
+    main {
+        width: 414px;
+        padding-left: 21px;
+        padding-top: 92px;
+        padding-bottom: 110px;
+    }
+    main h1 {
+        font-family: 'Righteous';
+        font-size: 26px;
+        line-height: 32px;
+        letter-spacing: 0.018em;
+        color: rgba(51, 51, 51, 1);
+        text-align: start;
+    }
 }

@@ -1,4 +1,6 @@
 var counter = 0;
+let custumerName;
+let adress;
 
 function selectedPlates(selector) {
 
@@ -71,13 +73,14 @@ function showReceipt(){
         receiptHidden.classList.toggle('hidden');
     }
     receiptFunction();
+    custumerName = prompt('Qual é o seu nome?');
+    adress = prompt('Qual é o seu endereço?');
 }
 function hideReceipt(){
 
     const receiptHidden = document.querySelector(".container .receipt-screen");
     receiptHidden.classList.add('hidden');
 }
-
 function receiptFunction(){
     const plateName = document.querySelector(".plates .selectedBox h2");
     const drinkName = document.querySelector(".drinks .selectedBox h2");
@@ -110,4 +113,25 @@ function receiptFunction(){
     const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
 
     chosenTotalPrice.innerHTML = "R$ " + totalPriceNumber.toFixed(2);
+}
+
+function linkToWhatsapp(){
+
+    const chosenPlate = document.querySelector(".receipt .food")
+    const chosenDrink = document.querySelector(".receipt .beverage")
+    const chosenDisert = document.querySelector(".receipt .sweets")
+
+    const chosenPlatePrice = document.querySelector(".receipt .food-price");
+    const chosenDrinkPrice = document.querySelector(".receipt .beverage-price");
+    const chosenDisertPrice = document.querySelector(".receipt .sweets-price");
+
+    const platePriceNumbers = chosenPlatePrice.innerHTML.replace("R$ ", "");
+    const drinkPriceNumbers = chosenDrinkPrice.innerHTML.replace("R$ ", "");
+    const disertPriceNumbers = chosenDisertPrice.innerHTML.replace("R$ ", "");
+    const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
+
+    const textURI = encodeURI(`Olá, gostaria de fazer o pedido: \n - Prato: ${chosenPlate.innerHTML} \n - Bebida: ${chosenDrink.innerHTML} \n - Sobremesa: ${chosenDisert.innerHTML} \n Total: R$ ${totalPriceNumber.toFixed(2)} \n\n Nome: ${custumerName} \n Endereço: ${adress}`);
+    const linkURL = `https://wa.me/DDIDDD999999999?text=${textURI}`
+
+    window.open(linkURL,'_blank');
 }
