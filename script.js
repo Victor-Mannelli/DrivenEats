@@ -64,24 +64,50 @@ function changeFooterTextAndColor() {
     }
 }
 
-function receiptFunction(){
-    
+function showReceipt(){
+
     if(counter === 3) {
         const receiptHidden = document.querySelector(".container .hidden");
         receiptHidden.classList.toggle('hidden');
     }
+    receiptFunction();
 }
-
 function hideReceipt(){
+
     const receiptHidden = document.querySelector(".container .receipt-screen");
     receiptHidden.classList.add('hidden');
 }
 
+function receiptFunction(){
+    const plateName = document.querySelector(".plates .selectedBox h2");
+    const drinkName = document.querySelector(".drinks .selectedBox h2");
+    const disertName = document.querySelector(".diserts .selectedBox h2");
+    
+    const platePrice = document.querySelector(".plates .selectedBox .price");
+    const drinkPrice = document.querySelector(".drinks .selectedBox .price");
+    const disertPrice = document.querySelector(".diserts .selectedBox .price");
 
 
+    const chosenPlate = document.querySelector(".receipt .food")
+    const chosenDrink = document.querySelector(".receipt .beverage")
+    const chosenDisert = document.querySelector(".receipt .sweets")
 
+    const chosenPlatePrice = document.querySelector(".receipt .food-price");
+    const chosenDrinkPrice = document.querySelector(".receipt .beverage-price");
+    const chosenDisertPrice = document.querySelector(".receipt .sweets-price");
+    const chosenTotalPrice = document.querySelector(".receipt .total-price");
 
+    chosenPlate.innerHTML = plateName.innerHTML;
+    chosenDrink.innerHTML = drinkName.innerHTML;
+    chosenDisert.innerHTML = disertName.innerHTML;
+    chosenPlatePrice.innerHTML = platePrice.innerHTML;
+    chosenDrinkPrice.innerHTML = drinkPrice.innerHTML;
+    chosenDisertPrice.innerHTML = disertPrice.innerHTML;
+   
+    const platePriceNumbers = chosenPlatePrice.innerHTML.replace("R$ ", "");
+    const drinkPriceNumbers = chosenDrinkPrice.innerHTML.replace("R$ ", "");
+    const disertPriceNumbers = chosenDisertPrice.innerHTML.replace("R$ ", "");
+    const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
 
-
-
-
+    chosenTotalPrice.innerHTML = "R$ " + totalPriceNumber.toFixed(2);
+}
