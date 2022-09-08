@@ -36,10 +36,10 @@ header p {
 }
 main {
     width: 100%;
+    height: 100vh;
     padding-left: 21px;
     padding-top: 92px;
     padding-bottom: 110px;
-
 }
 main h1 {
     font-family: 'Righteous';
@@ -237,6 +237,7 @@ ion-icon {
     height: 100%;
     background: rgba(255, 255, 255, 0.9);
 }
+
 .receipt {
     font-family: 'Roboto';
     font-size: 22px;
@@ -337,7 +338,6 @@ ion-icon {
 
 @media (max-width: 414px){
     .container {
-        width: 414px;
         background: #EEEEEE;
         z-index: 5;
     }
@@ -356,7 +356,6 @@ ion-icon {
         text-align: start;
     }
     main {
-        width: 414px;
         padding-left: 21px;
         padding-top: 92px;
         padding-bottom: 110px;
