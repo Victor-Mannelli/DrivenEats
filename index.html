@@ -11,26 +11,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="receipt-screen hidden"> 
-                <div class="receipt">
-                    <div class="confirmation" onclick="receiptFunction()"> <h4> Confirme seu pedido </h4> </div>
-                    <div class="food-price-tags">
-                        <div> 
-                            <p class="food"> food </p> 
-                            <p class="beverage"> beverage </p>
-                            <p class="sweets"> sweets </p>
-                            <p class="total"> Total </p>
-                        </div> 
-                        <div>
-                            <p class="food-price"> f-price </p> 
-                            <p class="beverage-price"> b-price </p>
-                            <p class="sweets-price"> s-price </p>
-                            <p class="total-price"> tt-price </p>
-                        </div>
-                    </div>
-                    <div onclick="linkToWhatsapp()"> Tudo certo, pode pedir! </div>
-                    <div onclick="hideReceipt()"> Cancelar </div>
-                </div>
+            <div class="over-the-screen">
             </div>
             <header> 
                 <h1>DrivenEats</h1>
@@ -113,7 +94,7 @@
                 </div>
             </main>
             <footer>
-                <div onclick="showReceipt()"> <h1>Selecione os 3 itens para fechar o pedido</h1> </div>
+                <button onclick="NameAdressRequest()"> <h1>Selecione os 3 itens para fechar o pedido</h1> </buton>
             </footer>
         </div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

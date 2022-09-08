@@ -1,6 +1,8 @@
-var counter = 0;
-let custumerName;
-let adress;
+let counter = 0;
+let custumerName = "";
+let adress = "";
+
+const overTheScreen = document.querySelector('.over-the-screen');
 
 function selectedPlates(selector) {
 
@@ -57,80 +59,118 @@ function changeFooterTextAndColor() {
         textFooter.innerHTML = "Fechar pedido"
 
         const footerBgColor = document.querySelector('green-button-footer')
-        const footerDiv = document.querySelector('footer div')
+        const footerDiv = document.querySelector('footer button')
     
         if (footerBgColor === null) {
             footerDiv.classList.add('green-button-footer')
         }
-
     }
 }
 
-function showReceipt(){
-
+function NameAdressRequest(){
     if(counter === 3) {
-        const receiptHidden = document.querySelector(".container .hidden");
-        receiptHidden.classList.toggle('hidden');
+
+        overTheScreen.innerHTML = "";
+        overTheScreen.innerHTML += `
+            <div class="pop-up-screen">
+                <div class="inputs-before-receipt">
+                    <h1> Informações necessarias! </h1>
+                    <div>
+                        <input class="name-input" placeholder="Digite seu nome!" > </input>
+                        <p class="name-input-error"> </p>
+                        <input class="adress-input" placeholder="Digite seu endereço!"> </input>
+                        <p class="adress-input-error"> </p>
+                    </div>
+                    <button class="show-receipt-button" onclick="showReceipt()" alt=""> Confirme seu pedido! </button>
+                </div>
+            </div>
+        `
     }
-    receiptFunction();
-    custumerName = prompt('Qual é o seu nome?');
-    adress = prompt('Qual é o seu endereço?');
+}
+function showReceipt(){
+    custumerName = document.querySelector('.name-input').value;
+    adress = document.querySelector('.adress-input').value;
+
+    const nameInput = document.querySelector('.name-input');
+    const adressInput = document.querySelector('.adress-input');
+    const nameInputError = document.querySelector('.name-input-error');
+    const adressInputError = document.querySelector('.adress-input-error');
+
+    if (nameInput.value === ""){
+        nameInputError.innerHTML = "Não esqueça de colocar o seu nome!"
+    } else {
+        nameInputError.innerHTML = ""
+    }
+    if (adressInput.value === ""){
+        adressInputError.innerHTML = "Não esqueça de colocar o seu endereço!"
+    } else {
+        adressInputError.innerHTML = ""
+    }
+    
+    const plateName = document.querySelector(".plates .selectedBox h2").innerHTML;
+    const drinkName = document.querySelector(".drinks .selectedBox h2").innerHTML;
+    const disertName = document.querySelector(".diserts .selectedBox h2").innerHTML;
+    
+    const platePrice = document.querySelector(".plates .selectedBox .price").innerHTML;
+    const drinkPrice = document.querySelector(".drinks .selectedBox .price").innerHTML;
+    const disertPrice = document.querySelector(".diserts .selectedBox .price").innerHTML;
+
+    const platePriceNumbers = platePrice.replace("R$ ", "");
+    const drinkPriceNumbers = drinkPrice.replace("R$ ", "");
+    const disertPriceNumbers = disertPrice.replace("R$ ", "");
+    const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
+
+    const FinalPrice = "R$ " + totalPriceNumber.toFixed(2);
+
+    if (nameInput.value !== "" && adressInput.value !== ""){
+        overTheScreen.innerHTML = ""
+        overTheScreen.innerHTML += `
+        <div class="pop-up-screen">
+            <div class="receipt">
+                <div class="confirmation" onclick="receiptFunction()"> <h4> Confirme seu pedido </h4> </div>
+                <div class="food-price-tags">
+                    <div>
+                        <p> ${plateName} </p>
+                        <p> ${drinkName} </p>
+                        <p> ${disertName} </p>
+                        <p> Total </p>
+                    </div>
+                    <div>
+                        <p> ${platePrice} </p>
+                        <p> ${drinkPrice} </p>
+                        <p> ${disertPrice} </p>
+                        <p> ${FinalPrice} </p>
+                    </div>
+                </div>
+                <button class="ready-to-ask" onclick="linkToWhatsapp()" alt=""> Tudo certo, pode pedir! </button>
+                <button class="cancel-request" onclick="hideReceipt()" alt=""> Cancelar </button>
+            </div>
+        </div>
+        `
+    } 
 }
 function hideReceipt(){
-
-    const receiptHidden = document.querySelector(".container .receipt-screen");
-    receiptHidden.classList.add('hidden');
+    overTheScreen.innerHTML = ""
 }
-function receiptFunction(){
-    const plateName = document.querySelector(".plates .selectedBox h2");
-    const drinkName = document.querySelector(".drinks .selectedBox h2");
-    const disertName = document.querySelector(".diserts .selectedBox h2");
     
-    const platePrice = document.querySelector(".plates .selectedBox .price");
-    const drinkPrice = document.querySelector(".drinks .selectedBox .price");
-    const disertPrice = document.querySelector(".diserts .selectedBox .price");
-
-
-    const chosenPlate = document.querySelector(".receipt .food")
-    const chosenDrink = document.querySelector(".receipt .beverage")
-    const chosenDisert = document.querySelector(".receipt .sweets")
-
-    const chosenPlatePrice = document.querySelector(".receipt .food-price");
-    const chosenDrinkPrice = document.querySelector(".receipt .beverage-price");
-    const chosenDisertPrice = document.querySelector(".receipt .sweets-price");
-    const chosenTotalPrice = document.querySelector(".receipt .total-price");
-
-    chosenPlate.innerHTML = plateName.innerHTML;
-    chosenDrink.innerHTML = drinkName.innerHTML;
-    chosenDisert.innerHTML = disertName.innerHTML;
-    chosenPlatePrice.innerHTML = platePrice.innerHTML;
-    chosenDrinkPrice.innerHTML = drinkPrice.innerHTML;
-    chosenDisertPrice.innerHTML = disertPrice.innerHTML;
-   
-    const platePriceNumbers = chosenPlatePrice.innerHTML.replace("R$ ", "");
-    const drinkPriceNumbers = chosenDrinkPrice.innerHTML.replace("R$ ", "");
-    const disertPriceNumbers = chosenDisertPrice.innerHTML.replace("R$ ", "");
-    const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
-
-    chosenTotalPrice.innerHTML = "R$ " + totalPriceNumber.toFixed(2);
-}
-
 function linkToWhatsapp(){
 
-    const chosenPlate = document.querySelector(".receipt .food")
-    const chosenDrink = document.querySelector(".receipt .beverage")
-    const chosenDisert = document.querySelector(".receipt .sweets")
+    const plateName = document.querySelector(".plates .selectedBox h2").innerHTML;
+    const drinkName = document.querySelector(".drinks .selectedBox h2").innerHTML;
+    const disertName = document.querySelector(".diserts .selectedBox h2").innerHTML;
 
-    const chosenPlatePrice = document.querySelector(".receipt .food-price");
-    const chosenDrinkPrice = document.querySelector(".receipt .beverage-price");
-    const chosenDisertPrice = document.querySelector(".receipt .sweets-price");
+    const platePrice = document.querySelector(".plates .selectedBox .price").innerHTML;
+    const drinkPrice = document.querySelector(".drinks .selectedBox .price").innerHTML;
+    const disertPrice = document.querySelector(".diserts .selectedBox .price").innerHTML;
 
-    const platePriceNumbers = chosenPlatePrice.innerHTML.replace("R$ ", "");
-    const drinkPriceNumbers = chosenDrinkPrice.innerHTML.replace("R$ ", "");
-    const disertPriceNumbers = chosenDisertPrice.innerHTML.replace("R$ ", "");
+    const platePriceNumbers = platePrice.replace("R$ ", "");
+    const drinkPriceNumbers = drinkPrice.replace("R$ ", "");
+    const disertPriceNumbers = disertPrice.replace("R$ ", "");
     const totalPriceNumber = (Number(platePriceNumbers) + Number(drinkPriceNumbers) + Number(disertPriceNumbers))
 
-    const textURI = encodeURI(`Olá, gostaria de fazer o pedido: \n - Prato: ${chosenPlate.innerHTML} \n - Bebida: ${chosenDrink.innerHTML} \n - Sobremesa: ${chosenDisert.innerHTML} \n Total: R$ ${totalPriceNumber.toFixed(2)} \n\n Nome: ${custumerName} \n Endereço: ${adress}`);
+    const FinalPrice = "R$ " + totalPriceNumber.toFixed(2);
+
+    const textURI = encodeURI(`Olá, gostaria de fazer o pedido: \n - Prato: ${plateName} \n - Bebida: ${drinkName} \n - Sobremesa: ${disertName} \n Total: R$ ${FinalPrice} \n\n Nome: ${custumerName} \n Endereço: ${adress}`);
     const linkURL = `https://wa.me/5521997790964?text=${textURI}`
 
     window.open(linkURL,'_blank');
