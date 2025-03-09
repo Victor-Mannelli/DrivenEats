@@ -35,11 +35,15 @@ header p {
     text-align: center;
 }
 main {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
-    padding-left: 21px;
-    padding-top: 92px;
-    padding-bottom: 110px;
+    padding: 92px 0px 110px 21px;
+
+    @media (max-width: 414px) {
+        padding-left: 10px;
+    }
 }
 main h1 {
     font-family: 'Righteous';
@@ -69,20 +73,16 @@ main img {
     height: 87px;
     border-radius: 4px;
 }
-.plates {
+.options {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
+    max-width: fit-content;
     justify-content: center;
-}
-.drinks {
-    display: flex;
-    overflow-x: scroll;
-    justify-content: center;
-}
-.diserts {
-    display: flex;
-    overflow-x: scroll;
-    justify-content: center;
+
+    @media (max-width: 580px) {
+        justify-content: start;
+        width: 100%;
+    }
 }
 .plate-description {
     width: 172px;
@@ -127,6 +127,8 @@ footer {
     position: fixed;
     bottom: 0px;
     left: 0px;
+
+    box-shadow: 0px 0px 5px 1px #0000004e;
 }
 footer button {
     width: 364px;
@@ -317,24 +319,6 @@ ion-icon {
     margin-right: 26px;
     text-align: end;
 }
-@media (max-width: 576px) {
-    
-    .plates {
-        display: flex;
-        overflow-x: scroll;
-        justify-content: flex-start;
-    }
-    .drinks {
-        display: flex;
-        overflow: auto;
-        justify-content: flex-start;
-    }
-    .diserts {
-        display: flex;
-        overflow: auto;
-        justify-content: flex-start;
-    }
-}
 
 @media (max-width: 414px){
     .container {
@@ -354,11 +338,6 @@ ion-icon {
         font-family: 'Roboto', sans-serif;
         color: white;
         text-align: start;
-    }
-    main {
-        padding-left: 21px;
-        padding-top: 92px;
-        padding-bottom: 110px;
     }
     main h1 {
         font-family: 'Righteous';
